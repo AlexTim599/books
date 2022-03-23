@@ -1,0 +1,20 @@
+.App {
+  text-align: center;
+  box-sizing: border-box;
+  min-width: 1300px;
+  margin: 0;
+  padding: 0;
+}
+
+.sort-books {
+  display: flex;
+  justify-content: center;
+}
+
+.booksCatalogPage{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 850px;
+  margin: auto;
+}

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { categoriesList, sortList } from "../../constants";
 import Searh from "../SearhBooks/search";
-import Sort from "../SortingBooks/sorting";
+import Sort from "../SortingBooks";
 import { useDispatch } from "react-redux";
 import "../Header/header.css";
 import { FETCH_BOOKS } from "../../redux/sagas/actions";

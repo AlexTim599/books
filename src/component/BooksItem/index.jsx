@@ -5,8 +5,6 @@ import "../BooksItem/booksItem.css";
 function BooksItem() {
   const books = useSelector((state) => state.books);
 
-  console.log(books);
-
   return books.isError ? (
     <div className="errorMessage">
       <h3>Oops, try again...</h3>

@@ -1,12 +1,12 @@
 import React, { FC } from "react";
 import "../BooksCatalog/catalog.css";
 
-interface CatalogProps {
+type CatalogProps = {
   imageLink: string;
   category: string;
   title: string;
   author: string;
-}
+};
 
 const Catalog: FC<CatalogProps> = ({ imageLink, category, title, author }) => {
   return (

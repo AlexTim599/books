@@ -1,25 +1,15 @@
 import React, { FC, ChangeEvent } from "react";
+import { categoriesList, sortList } from "../../constants";
 import "./sorting.css";
 
 interface SortProps {
   labelText: string;
-  setValue: (value: string) => string;
+  setValue: (value: any) => void;
   list: string[];
-  value: string[];
+  value: categoriesList | sortList;
 }
 
-// function Sort({ list, labelText, setValue, value }) {
-//   const sortCategory = list.map((element, index) => (
-//     <option key={index} value={element}>
-//       {element}
-//     </option>
-//   ));
-
-//   function selectValue(e) {
-//     setValue(e.target.value);
-//   }
-
-function Sort({ list, labelText, setValue, value }: SortProps) {
+const Sort: FC<SortProps> = ({ list, labelText, setValue, value }) => {
   const sortCategory = list.map((element, index) => (
     <option key={index} value={element}>
       {element}
@@ -27,7 +17,7 @@ function Sort({ list, labelText, setValue, value }: SortProps) {
   ));
 
   function selectValue(e: ChangeEvent<HTMLSelectElement>) {
-    setValue(e.target.value);
+    setValue(e.target.value as categoriesList);
   }
 
   return (
@@ -38,6 +28,6 @@ function Sort({ list, labelText, setValue, value }: SortProps) {
       </select>
     </div>
   );
-}
+};
 
 export default Sort;

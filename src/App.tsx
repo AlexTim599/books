@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "./component/Header/Header";
-import BooksItem from "./component/BooksItem/index.jsx";
+import BooksItem from "./component/BooksItem";
 import "./App.css";
 import BooksCount from "./component/FoundResult";
 

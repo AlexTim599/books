@@ -1,51 +1,47 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { IActionType, IBooksSliceState } from "../../component/Models/books";
 
-interface BooksSliceState {
-  books: any[];
-  booksCount: number;
-  isError: boolean;
-  errorMessage: string | null;
-}
-
-interface ActionTape {
-  type: string;
-  action?: any;
-  payload?: any;
-}
-
-const initialState: BooksSliceState = {
+const initialState: IBooksSliceState = {
   books: [],
   booksCount: 0,
   isError: false,
   errorMessage: "",
+  isLoading: false,
 };
 
-export const booksSlice = createSlice({
+export const BooksSlice = createSlice({
   name: "books",
   initialState,
   reducers: {
-    setBooks: (state, action: ActionTape) => {
+    setBooks: (state: IBooksSliceState, action: IActionType) => {
       return {
         ...state,
         books: action.payload,
         isError: false,
+        isLoading: true,
       };
     },
-    setBooksCount: (state, action) => {
+    setBooksCount: (state: IBooksSliceState, action: PayloadAction<number>) => {
       return {
         ...state,
         booksCount: action.payload,
       };
     },
-    errorBooks: (state, action) => {
+    errorBooks: (state: IBooksSliceState, action: IActionType) => {
       return {
         ...state,
         isError: true,
         errorMessage: action.payload,
+        isLoading: true,
       };
     },
+    setIsloading: (
+      state: IBooksSliceState,
+      action: PayloadAction<boolean>
+    ) => ({ ...state, isLoading: action.payload }),
   },
 });
 
-export const { setBooks, setBooksCount, errorBooks } = booksSlice.actions;
-export default booksSlice.reducer;
+export const { setBooks, setBooksCount, errorBooks, setIsloading } =
+  BooksSlice.actions;
+export default BooksSlice.reducer;

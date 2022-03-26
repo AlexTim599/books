@@ -20,6 +20,7 @@ api.interceptors.request.use(
 
 api.interceptors.response.use(
   function (response) {
+    console.log(response);
     return response.data;
   },
   function (error) {

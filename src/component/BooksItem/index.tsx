@@ -3,10 +3,16 @@ import { RootState } from "../../redux/store";
 import Catalog from "../BooksCatalog/catalog";
 import "../BooksItem/booksItem.css";
 
+
+
 function BooksItem() {
   const books = useSelector((state: RootState) => state.books);
 
-  return books.isError ? (
+  const IsLoadingBooks = useSelector<RootState>(
+    (state) => state.books.isLoading
+  );
+
+  return  books.isError ? (
     <div className="errorMessage">
       <h3>Oops, try again...</h3>
     </div>

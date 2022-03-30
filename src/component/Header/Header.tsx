@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { categoriesList, sortList } from "../../constants";
+import { categoriesList, sortList, TCategoriesList, TSortList } from "../../constants";
 import Searh from "../SearhBooks/search";
 import Sort from "../SortingBooks";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,8 +8,8 @@ import { FETCH_BOOKS } from "../../redux/sagas/actions";
 import { RootState } from "../../redux/store";
 
 function Header() {
-  const [category, setCategory] = useState<categoriesList>(categoriesList.all);
-  const [sortBy, setSortBy] = useState<sortList>(sortList.newest);
+  const [category, setCategory] = useState<TCategoriesList>('all');
+  const [sortBy, setSortBy] = useState<TSortList>('newest');
   const [title, setTitle] = useState("");
 
   const dispatch = useDispatch();
@@ -38,13 +38,13 @@ function Header() {
           />
           <div className="sort-books">
             <Sort
-              list={Object.values(categoriesList)}
+              list={categoriesList}
               labelText="category"
               setValue={setCategory}
               value={category}
             />
             <Sort
-              list={Object.values(sortList)}
+              list={sortList}
               labelText="sortingBy"
               setValue={setSortBy}
               value={sortBy}

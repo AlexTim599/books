@@ -18,7 +18,7 @@ export const BooksSlice = createSlice({
         ...state,
         books: action.payload,
         isError: false,
-        isLoading: true,
+        isLoading: false,
       };
     },
     setBooksCount: (state: IBooksSliceState, action: PayloadAction<number>) => {
@@ -32,7 +32,7 @@ export const BooksSlice = createSlice({
         ...state,
         isError: true,
         errorMessage: action.payload,
-        isLoading: true,
+        isLoading: false,
       };
     },
     setIsloading: (

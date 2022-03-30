@@ -1,11 +1,11 @@
 import React, { FC, ChangeEvent } from "react";
-import { categoriesList, sortList } from "../../constants";
+import { categoriesList, sortList, TCategoriesList, TSortList } from "../../constants";
 import "./sorting.css";
 
 interface SortProps {
   labelText: string;
   setValue: (value: any) => void;
-  list: string[];
+  list: TCategoriesList[]| TSortList[];
   value: categoriesList | sortList;
 }
 

@@ -2,14 +2,14 @@ import React, { FC, ChangeEvent } from "react";
 import { categoriesList, sortList, TCategoriesList, TSortList } from "../../constants";
 import "./sorting.css";
 
-interface SortProps {
+interface SortProps<T> {
   labelText: string;
-  setValue: (value: any) => void;
-  list: TCategoriesList[]| TSortList[];
-  value: categoriesList | sortList;
+  setValue: (value: T) => void;
+  list: readonly T[];
+  value: T;
 }
 
-const Sort: FC<SortProps> = ({ list, labelText, setValue, value }) => {
+const Sort = <T extends TCategoriesList | TSortList>({ list, labelText, setValue, value }: SortProps<T>) => {
   const sortCategory = list.map((element, index) => (
     <option key={index} value={element}>
       {element}
@@ -17,7 +17,7 @@ const Sort: FC<SortProps> = ({ list, labelText, setValue, value }) => {
   ));
 
   function selectValue(e: ChangeEvent<HTMLSelectElement>) {
-    setValue(e.target.value as categoriesList);
+    setValue(e.target.value as T);
   }
 
   return (

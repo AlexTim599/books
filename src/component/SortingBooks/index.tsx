@@ -1,5 +1,5 @@
-import React, { FC, ChangeEvent } from "react";
-import { categoriesList, sortList, TCategoriesList, TSortList } from "../../constants";
+import  { FC, ChangeEvent } from "react";
+import { TCategoriesList, TSortList } from "../../constants";
 import "./sorting.css";
 
 interface SortProps<T> {

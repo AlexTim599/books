@@ -18,14 +18,7 @@ function Header() {
   );
   return (
     <div className="wrapper">
-      {IsLoadingBooks ? (
-        <div className="orbit-spinner">
-          <div className="orbit"></div>
-          <div className="orbit"></div>
-          <div className="orbit"></div>
-        </div>
-      ) : (
-        <>
+        
           <Searh
             setValue={setTitle}
             value={title}
@@ -50,8 +43,7 @@ function Header() {
               value={sortBy}
             />
           </div>
-        </>
-      )}
+       
     </div>
   );
 }

@@ -15,7 +15,7 @@ function* booksWorker(action) {
     yield put({ type: setBooks.type, payload: books.items });
     yield put({ type: setBooksCount.type, payload: books.totalItems });
   } catch (error) {
-    yield put({ type: errorBooks.type, payload: error });
+    yield put({ type: errorBooks.type, payload: error.message });
   }
 }
 

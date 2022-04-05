@@ -12,6 +12,8 @@ function App() {
       <div className=" booksItem">
         <BooksItem />
         <div />
+        <button className=" btn"> next</button>
+        <input type="text" placeholder="searh" data-testid="searh" />
       </div>
     </div>
   );

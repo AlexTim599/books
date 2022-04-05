@@ -11,10 +11,13 @@
   justify-content: center;
 }
 
-.booksCatalogPage{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+.booksCatalogPage {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  justify-content: center;
+  gap: 20px;
+  row-gap: 20px;
   width: 850px;
   margin: auto;
+  padding-bottom: 30px;
 }

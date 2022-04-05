@@ -11,7 +11,13 @@ function BooksItem() {
   const IsLoadingBooks = useSelector<RootState>(
     (state) => state.books.isLoading
   );
-
+ if (IsLoadingBooks) {
+   return (<div className="orbit-spinner">
+   <div className="orbit"></div>
+   <div className="orbit"></div>
+   <div className="orbit"></div>
+ </div>)
+ }
   return  books.isError ? (
     <div className="errorMessage">
       <h3>Oops, try again...</h3>

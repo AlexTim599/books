@@ -8,9 +8,8 @@ api.interceptors.request.use(
   function (config) {
     return {
       ...config,
-      url: `${config.url}${
-        config.url.includes("?") ? "&" : "?"
-      }key=AIzaSyBFeGc1dlPmCJMD-uF2Z-8LxzsHA7r0owg`,
+      url: `${config.url}${config.url.includes("?") ? "&" : "?"
+        }key=AIzaSyBFeGc1dlPmCJMD-uF2Z-8LxzsHA7r0owg`,
     };
   },
   function (error) {
@@ -28,11 +27,13 @@ api.interceptors.response.use(
   }
 );
 
-export function getBooks({ title, category, sortBy }) {
+export function getBooks({ title, category, sortBy, page, maxResults }) {
   let filteredRequest = `/books/v1/volumes?`;
   filteredRequest += `q=${title}`;
   filteredRequest += category === "all" ? "" : `+subject:${category}`;
   filteredRequest += `&orderBy=${sortBy}`;
+  filteredRequest += `&startIndex=${page * maxResults}`;
+  filteredRequest += `&maxResults=${maxResults}`;
 
   return api.get(filteredRequest);
 }

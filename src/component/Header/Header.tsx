@@ -18,32 +18,32 @@ function Header() {
   );
   return (
     <div className="wrapper">
-        
-          <Searh
-            setValue={setTitle}
-            value={title}
-            buttonClick={() =>
-              dispatch({
-                type: FETCH_BOOKS,
-                payload: { title, category, sortBy },
-              })
-            }
-          />
-          <div className="sort-books">
-            <Sort
-              list={categoriesList}
-              labelText="category"
-              setValue={setCategory}
-              value={category}
-            />
-            <Sort
-              list={sortList}
-              labelText="sortingBy"
-              setValue={setSortBy}
-              value={sortBy}
-            />
-          </div>
-       
+
+      <Searh
+        setValue={setTitle}
+        value={title}
+        buttonClick={(page: number, maxResults: number) =>
+          dispatch({
+            type: FETCH_BOOKS,
+            payload: { title, category, sortBy, page, maxResults },
+          })
+        }
+      />
+      <div className="sort-books">
+        <Sort
+          list={categoriesList}
+          labelText="category"
+          setValue={setCategory}
+          value={category}
+        />
+        <Sort
+          list={sortList}
+          labelText="sortingBy"
+          setValue={setSortBy}
+          value={sortBy}
+        />
+      </div>
+
     </div>
   );
 }
